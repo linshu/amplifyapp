@@ -49,10 +49,6 @@ const App = ({ signOut }) => {
       description: form.get("description"),
       image: image.name,
     };
-    await API.graphql({
-      query: createNoteMutation,
-      variables: { input: data },
-    });
     if (!!data.image) await Storage.put(data.name, image);
     await API.graphql({
       query: createNoteMutation,
